@@ -5,3 +5,20 @@
       name: apache2
       update_cache: yes
       state: latest
+  
+  - name: Start Apache
+    service:
+      name: apache2
+      state: started
+      enabled: yes
+
+  - name: Install unzip
+    apt:
+      name: unzip
+      state: latest
+
+  - name: Download and extract Template
+    unarchive:
+       src : https://www.free-css.com/assets/files/free-css-templates/download/page287/eflyer.zip
+       dest: /var/www/
+       remote_src: yes  
